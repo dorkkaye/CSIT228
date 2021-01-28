@@ -1,4 +1,4 @@
-public class Name 
+public class Name extends Mobile
 {
     private String firstname;
     private String middlename;

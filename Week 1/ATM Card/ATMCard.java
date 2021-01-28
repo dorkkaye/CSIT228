@@ -32,14 +32,14 @@ public class ATMCard extends Name
         return balance;
     }
 
-    public float checkBalance(float balance)
+    public double checkBalance()
     {
         return this.balance;
     }
 
     public double depositMoney(double amount)
     {
-        return this.balance += amount;
+        return balance += amount;
     }
 
     public boolean withdrawMoney(float amount)
@@ -53,11 +53,11 @@ public class ATMCard extends Name
         }
     }
 
-    public float interest(float rate)
+    public double interest(double rate)
     {
-        float amount = this.getBalance() + (this.balance * rate);
+        double interest = balance * (rate/100);
 
-        return depositMoney(amount);
+        return depositMoney(interest);
     }
 
     public String toString()
