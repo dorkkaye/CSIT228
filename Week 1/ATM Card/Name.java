@@ -45,6 +45,6 @@ public class Name extends Mobile
 
     public String toString()
     {
-        return lastname + ", " + firstname + " " + middlename;
+        return firstname + " " + middlename + " " + lastname;
     }
 }

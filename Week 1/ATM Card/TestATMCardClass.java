@@ -10,7 +10,7 @@ public class TestATMCardClass
         Name n = new Name("Juan", "dela", "Cruz");
         ATMCard atm = new ATMCard();
 
-        System.out.println("Enter name: <<" + n.getFirstName() + " " + n.getMiddleName() + " " + n.getLastName() + ">>");
+        System.out.println("Enter name: <<" + n.toString() + ">>");
         atm.setcardNumbe("A101-1125");
         System.out.printf("Enter account number: %s", atm.getcardNumber());
         atm.setBalance(1000.00);
@@ -34,7 +34,7 @@ public class TestATMCardClass
                     System.out.print("\nEnter amount: ");   //500.50
                     atm.depositMoney(sc.nextDouble());
 
-                    System.out.println("\nEnter name: <<" + n.getFirstName() + " " + n.getMiddleName() + " " + n.getLastName() + ">>");
+                    System.out.println("\nEnter name: <<" + n.toString() + ">>");
                     System.out.printf("Enter account number: %s", atm.getcardNumber());
                     System.out.printf("\nNew balance: %.2f", atm.getBalance());
 
@@ -44,7 +44,7 @@ public class TestATMCardClass
                     
                     if(atm.withdrawMoney(sc.nextFloat()) == true)
                     {
-                        System.out.println("\nEnter name: <<" + n.getFirstName() + " " + n.getMiddleName() + " " + n.getLastName() + ">>");
+                        System.out.println("\nEnter name: <<" + n.toString() + ">>");
                         System.out.printf("Enter account number: %s", atm.getcardNumber());
                         System.out.printf("\nNew balance: %.2f", atm.getBalance());
                     }
@@ -55,7 +55,7 @@ public class TestATMCardClass
                 case 3:
                     atm.checkBalance();
 
-                    System.out.println("\nEnter name: <<" + n.getFirstName() + " " + n.getMiddleName() + " " + n.getLastName() + ">>");
+                    System.out.println("\nEnter name: <<" + n.toString() + ">>");
                     System.out.printf("Enter account number: %s", atm.getcardNumber());
                     System.out.printf("\nBalance: %.2f", atm.getBalance());
 
@@ -64,7 +64,7 @@ public class TestATMCardClass
                     System.out.print("\nEnter rate: ");   //3.5
                     atm.interest(sc.nextDouble());
 
-                    System.out.println("\nEnter name: <<" + n.getFirstName() + " " + n.getMiddleName() + " " + n.getLastName() + ">>");
+                    System.out.println("\nEnter name: <<" + n.toString() + ">>");
                     System.out.printf("Enter account number: %s", atm.getcardNumber());
                     System.out.printf("\nNew balance: %.4f", atm.getBalance());
                     break;
@@ -74,8 +74,6 @@ public class TestATMCardClass
                     System.out.println("Invalid input");
                     break;
             }
-            
-            
         }
         
         sc.close();
