@@ -67,6 +67,7 @@ public class TestATMCardClass
                     System.out.println("\nEnter name: <<" + n.toString() + ">>");
                     System.out.printf("Enter account number: %s", atm.getcardNumber());
                     System.out.printf("\nNew balance: %.4f", atm.getBalance());
+                    
                     break;
                 case 5:
                     System.exit(0);
