@@ -58,7 +58,7 @@ public class VideoList extends Video
     // returns true if successfully added in the list else false
     public boolean addVideo(Video video)
     {
-        if (this.count < this.max) 
+        if(this.count < this.max) 
         {
             videoList[this.count] = video;
             this.count++;
@@ -87,7 +87,6 @@ public class VideoList extends Video
         if (index != -1 && this.count != 0) 
         {
             videoList[index] = videoList[this.count - 1];
-            videoList[this.count - 1] = null;
             this.count--;
             return true;
         }
@@ -112,7 +111,7 @@ public class VideoList extends Video
             {
                 if (v != null) 
                 {
-                    System.out.println("Video [" + Integer.valueOf(x++).toString() + "]:");
+                    System.out.println("Video [" + Integer.valueOf(++x).toString() + "]:");
                     v.display();
                 }
             }
