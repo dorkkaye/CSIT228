@@ -21,7 +21,6 @@ abstract class Video implements VisualMaterial
     private String category;
     private int length;
 
-
     Video(){}
 
     Video(String code, String title, Artist artist, int length)
@@ -61,6 +60,16 @@ abstract class Video implements VisualMaterial
         this.title = title;
     }
 
+    public void setCategory(String category)
+    {
+        this.category = category;
+    }
+
+    public void setLength(int length)
+    {
+        this.length = length;
+    }
+
     public String getCode()
     {
         return code;
@@ -71,9 +80,15 @@ abstract class Video implements VisualMaterial
         return title;
     }
 
-    //Methods of VisualMaterial
-    public abstract void copyrightNotice();   
-    public abstract int length();
+    public String getCategory()
+    {
+        return category;
+    }
+
+    public int getLength()
+    {
+        return length;
+    }
 
     public void display()
     {
