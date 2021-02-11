@@ -3,11 +3,14 @@ import java.io.*;
 public class FileMethodDemo{
 	File myfile;
 	//create file method
-	public boolean createMyFile(String filename)throws Exception{
+	public boolean createMyFile(String filename)throws Exception
+	{
 		myfile	= new File(filename);
+
 		if (myfile.exists())
 			return false;
-		else{
+		else
+		{
 			myfile.createNewFile();
 			return true;
 		}

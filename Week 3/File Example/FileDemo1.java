@@ -1,4 +1,4 @@
-import java.io.*;
+fikeimport java.io.*;
 import java.util.*;
 public class FileDemo1{
 	public static void main(String[] args)throws Exception{
