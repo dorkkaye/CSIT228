@@ -21,39 +21,38 @@ public class MyFileEngbinoF1
     {
             myFile = new File(filename);
             
-            if(myFile.exists()){
+            if(myFile.exists())
                 return false;
-            }else{
+            else
+            {
                 myFile.createNewFile();
+                
                 return true;
             }
     }
 
     public boolean isFile(File file)
     {
-            if(file.isFile()){
+            if(file.isFile())
                 return true;
-            }else{
+            else
                 return false;
-            }
-        }
+    }
 
     public boolean delete(File file)
     { 
-            if(file.delete()){
+            if(file.delete())
                 return true;
-            }else{
+            else
                 return false;
-            }
-        }
+    }
 
     public boolean isDirectory(File file)
     { 
-            if(file.isDirectory()){
+            if(file.isDirectory())
                 return true;
-            }else{
+            else
                 return false;
-            }
         }
 
         public boolean writeToFile(String filename, String seatStr)
@@ -64,34 +63,39 @@ public class MyFileEngbinoF1
                 myWriter.write("Write to file");
                 myWriter.close();
                 System.out.println("Successfully wrote to the file.");
+                
                 return true;
             } 
             catch (IOException e) 
             {
                 System.out.println("An error occurred.");
-                e.printStackTrace();
+                e.printStackTrace();    //use to handle exceptions and errors
             }
+
             return false;
         }
 
         public boolean readFromFile(String filename)
         {
-            try {
+            try 
+            {
                 File myObj = new File(filename);
                 Scanner myReader = new Scanner(myObj);
-                while (myReader.hasNextLine()) {
+
+                while (myReader.hasNextLine())  //checks if there is another line in the input of the scanner
+                {
                   String data = myReader.nextLine();
-                  System.out.println(data);
-                  
+                  System.out.println(data);             
             
-                  return true;
-                  
+                  return true;     
                 }
-                
-              } catch (FileNotFoundException e) {
+              } 
+              catch (FileNotFoundException e) 
+              {
                 System.out.println("An error occurred.");
                 e.printStackTrace();
               }
+
               return false;
         }
 }

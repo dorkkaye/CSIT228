@@ -1,4 +1,3 @@
-import java.io.*;
 import java.util.*;
 
 public class AirlineFileEngbino 
@@ -8,6 +7,7 @@ public class AirlineFileEngbino
     static void initSeats(int seats[], int size)
     {
         int i;
+        size = 10;
         
         //First Class
         for(i = 0; i < size / 2; i++)
@@ -21,6 +21,7 @@ public class AirlineFileEngbino
     static void displaySeats(int seats[], int size)
     {
         int i;
+        size = 10;
         
         System.out.printf("First Class Section: ");
         //First Class
@@ -57,19 +58,19 @@ public class AirlineFileEngbino
                 }
             }
         }	
+
         //Economy Section
         if(seatType == 2)
         {
             int seat = assignEconomy(st, size);
+
             if(seat == -1)
             {
                 System.out.printf("\nAll seats are already taken, do you wish to be assigned in first class section (1 - yes | 0 - no): ");
                 int choice = sc.nextInt();
 
                 if(choice == 1)
-                {
                     seat = assignFirstClass(st, size);
-                }
                 else
                 {
                     System.out.printf("\n\nAll seats are already taken.\n");
@@ -91,11 +92,14 @@ public class AirlineFileEngbino
         }
     }
 
-    public static int assignFirstClass(int[] seats, int size) {
+    public static int assignFirstClass(int[] seats, int size) 
+    {
         size = 10;
 
-        for (int i = 0; i < size / 2; i++) {
-            if (seats[i] != 1) {
+        for (int i = 0; i < size / 2; i++) 
+        {
+            if (seats[i] != 1) 
+            {
                 seats[i] = 1;
                 return i;
             }
@@ -107,8 +111,10 @@ public class AirlineFileEngbino
     public static int assignEconomy(int[] seats, int size) {
         size = 10;
 
-        for (int i = size / 2; i < size; i++) {
-            if (seats[i] != 1) {
+        for (int i = size / 2; i < size; i++)
+         {
+            if (seats[i] != 1) 
+            {
                 seats[i] = 1;
                 return i;
             }
@@ -117,19 +123,23 @@ public class AirlineFileEngbino
         return -1;
     }
 
-    public static String displayBoardingPass(int seat) {
+    public static String displayBoardingPass(int seat) 
+    {
         String boardPass = "Boarding Pass\n";
-        seat = 0;
-        if(seat < 5){
+
+        if(seat < 5)
+        {
             boardPass += "First Class";
             System.out.println("First Class");
-        }else{
+        }
+        else
+        {
             boardPass += "Economy";
             System.out.println("Economy");
         }
+
         System.out.println("Seat No. "+(seat+1)+"\n");
         boardPass+="\nSeat No. "+(seat+1)+"\n\n";
-        seat++;
 
         return boardPass;
     }
@@ -152,6 +162,4 @@ public class AirlineFileEngbino
             assignSeat(seats, seatType);
         }
 	}
-
-	public Object seats;
 }
