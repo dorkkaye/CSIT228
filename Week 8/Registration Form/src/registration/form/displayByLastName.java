@@ -111,13 +111,13 @@ public class displayByLastName extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnDisplayByLastName)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtLastname, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnDisplayByLastName)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtLastname, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -127,32 +127,36 @@ public class displayByLastName extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDisplayByLastName)
                     .addComponent(txtLastname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtLastnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLastnameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLastnameActionPerformed
+
     private void btnDisplayByLastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDisplayByLastNameActionPerformed
         // TODO add your handling code here:
-         try {
+        try {
             // TODO add your handling code here:
             String lname = txtLastname.getText();
             ResultSet rs = dbh.displayByLastName(lname);
-            
+
             while(tblDisplayByLastName.getRowCount() > 0)
             {
                 ((DefaultTableModel) tblDisplayByLastName.getModel()).removeRow(0);
             }
-            
+
             int columns = rs.getMetaData().getColumnCount();
-            
+
             while(rs.next())
             {
                 Object[] row = new Object[columns];
-                
+
                 for(int i = 1; i <= columns; i++)
                 {
                     row[i - 1] = rs.getObject(i);
@@ -163,10 +167,6 @@ public class displayByLastName extends javax.swing.JFrame {
             Logger.getLogger(displayRecords.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnDisplayByLastNameActionPerformed
-
-    private void txtLastnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLastnameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLastnameActionPerformed
 
     /**
      * @param args the command line arguments

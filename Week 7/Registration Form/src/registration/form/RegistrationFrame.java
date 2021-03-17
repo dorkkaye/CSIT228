@@ -68,6 +68,7 @@ public class RegistrationFrame extends javax.swing.JFrame {
         btnClear = new javax.swing.JButton();
         radioStudent = new javax.swing.JRadioButton();
         radioTeacher = new javax.swing.JRadioButton();
+        createAccount1 = new javax.swing.JLabel();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -77,6 +78,7 @@ public class RegistrationFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jList1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jLabel1.setText("REGISTER");
 
@@ -122,6 +124,15 @@ public class RegistrationFrame extends javax.swing.JFrame {
         radioTeacher.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioTeacherActionPerformed(evt);
+            }
+        });
+
+        createAccount1.setFont(new java.awt.Font("Raleway Black", 1, 18)); // NOI18N
+        createAccount1.setForeground(new java.awt.Color(250, 250, 250));
+        createAccount1.setText("X");
+        createAccount1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                createAccount1MouseClicked(evt);
             }
         });
 
@@ -176,7 +187,9 @@ public class RegistrationFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(202, 202, 202))
+                        .addGap(184, 184, 184)
+                        .addComponent(createAccount1)
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(radioTeacher)
                         .addGap(18, 18, 18)
@@ -186,8 +199,13 @@ public class RegistrationFrame extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(createAccount1)))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -237,6 +255,7 @@ public class RegistrationFrame extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
@@ -281,6 +300,11 @@ public class RegistrationFrame extends javax.swing.JFrame {
         radioStudent.setSelected(false);
     }//GEN-LAST:event_radioTeacherActionPerformed
 
+    private void createAccount1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createAccount1MouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_createAccount1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -318,6 +342,7 @@ public class RegistrationFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnRegister;
+    private javax.swing.JLabel createAccount1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
