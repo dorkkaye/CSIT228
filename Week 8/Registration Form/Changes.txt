@@ -1,0 +1,5 @@
+Creating an Account
+
+Additionals:
+	-Username
+	-Password

@@ -30,13 +30,30 @@ public class DBHelper {
         System.out.println("Connected to the database");
     }
 
-    public boolean insertRecord(int idnum, String fname, String lname, String mname, String email, String uname, String pword, int birthdate)
+    public boolean insertRecordStudent(int idnum, String fname, String lname, String mname, String pword, int age, String uname, String email)
     {
         boolean flag = false;
         
         try {
             stmt = con.createStatement();
-            String sql = "Insert into tblStudentInfo values ("+idnum+",'"+fname+"', '"+lname+"', '"+mname+"', '"+email+"', '"+uname+"', '"+pword+"', "+birthdate+")";
+            String sql = "Insert into tblStudentInfo values ("+idnum+",'"+fname+"', '"+lname+"', '"+mname+"', '"+pword+"', "+age+", '"+uname+"', '"+email+"')";
+        
+            if(stmt.executeUpdate(sql) == 1);
+                flag = true;
+        } catch (SQLException ex) {
+            Logger.getLogger(DBHelper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return flag;
+    }
+    
+    public boolean insertRecordTeacher(int idnum, String fname, String lname, String email, String uname, String pword, int age, String mname)
+    {
+        boolean flag = false;
+        
+        try {
+            stmt = con.createStatement();
+            String sql = "Insert into tblTeacherInfo values ("+idnum+",'"+fname+"', '"+lname+"', '"+email+"', '"+uname+"', '"+pword+"', "+age+", '"+mname+"')";
         
             if(stmt.executeUpdate(sql) == 1);
                 flag = true;
