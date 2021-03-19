@@ -9,18 +9,16 @@ import java.awt.Color;
 import java.awt.Image;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ButtonGroup;
-import javax.swing.ButtonModel;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
  *
  * @author Kaye P. Engbino
  * $Date 18 Mar 21
- * @Version 1.1
+ * @Version 1.2
  * 
  */
 public class RegistrationFrame extends javax.swing.JFrame {
@@ -44,6 +42,7 @@ public class RegistrationFrame extends javax.swing.JFrame {
         scaleImage();
     }
     
+    //Fiting an img in JLabel
     public void scaleImage()
     {
         ImageIcon icon = new ImageIcon("C:\\Users\\Kaye\\OneDrive\\Documents\\GitHub\\CSIT228\\Week 8\\Registration Form\\Images\\logo.png");
@@ -147,6 +146,11 @@ public class RegistrationFrame extends javax.swing.JFrame {
         txtFirstname.setBackground(new java.awt.Color(237, 237, 237));
         txtFirstname.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtFirstname.setText("FIRST NAME");
+        txtFirstname.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtFirstnameFocusGained(evt);
+            }
+        });
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Middle Name");
@@ -154,6 +158,11 @@ public class RegistrationFrame extends javax.swing.JFrame {
         txtMiddlename.setBackground(new java.awt.Color(237, 237, 237));
         txtMiddlename.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtMiddlename.setText("OPTIONAL");
+        txtMiddlename.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtMiddlenameFocusGained(evt);
+            }
+        });
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Last Name");
@@ -161,6 +170,11 @@ public class RegistrationFrame extends javax.swing.JFrame {
         txtLastname.setBackground(new java.awt.Color(237, 237, 237));
         txtLastname.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtLastname.setText("LAST NAME");
+        txtLastname.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtLastnameFocusGained(evt);
+            }
+        });
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Age");
@@ -228,6 +242,11 @@ public class RegistrationFrame extends javax.swing.JFrame {
         txtIDNum.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtIDNum.setText("SCHOOL ID");
         txtIDNum.setToolTipText("");
+        txtIDNum.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtIDNumFocusGained(evt);
+            }
+        });
         txtIDNum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIDNumActionPerformed(evt);
@@ -330,6 +349,11 @@ public class RegistrationFrame extends javax.swing.JFrame {
         txtAge.setBackground(new java.awt.Color(237, 237, 237));
         txtAge.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtAge.setText("AGE");
+        txtAge.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtAgeFocusGained(evt);
+            }
+        });
 
         btnRegister.setBackground(new java.awt.Color(237, 237, 237));
         btnRegister.setForeground(new java.awt.Color(15, 25, 35));
@@ -692,18 +716,18 @@ public class RegistrationFrame extends javax.swing.JFrame {
             boolean ins = dbh.insertRecordStudent(idnum, fname, lname, mname, pass, age, uname, email);
 
             if(ins)
-            System.out.println("Record inserted...");
+                JOptionPane.showMessageDialog(this, "Successfuly Signed Up");
             else
-            System.out.println("Record NOT inserted...");
+                JOptionPane.showMessageDialog(this, "Sorry, you have invalid inputs at some fields");
         }
         else
         {
             boolean ins = dbh.insertRecordTeacher(idnum, fname, lname, email, uname, pass, age, mname);
 
             if(ins)
-            System.out.println("Record inserted...");
+                JOptionPane.showMessageDialog(this, "Successfuly Signed Up");
             else
-            System.out.println("Record NOT inserted...");
+                JOptionPane.showMessageDialog(this, "Sorry, you have invalid inputs at some fields");
         }
 
         
@@ -742,6 +766,31 @@ public class RegistrationFrame extends javax.swing.JFrame {
         new logIn().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void txtFirstnameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFirstnameFocusGained
+        // TODO add your handling code here:
+        txtFirstname.setText("");
+    }//GEN-LAST:event_txtFirstnameFocusGained
+
+    private void txtLastnameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtLastnameFocusGained
+        // TODO add your handling code here:
+        txtLastname.setText("");
+    }//GEN-LAST:event_txtLastnameFocusGained
+
+    private void txtMiddlenameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMiddlenameFocusGained
+        // TODO add your handling code here:
+        txtMiddlename.setText("");
+    }//GEN-LAST:event_txtMiddlenameFocusGained
+
+    private void txtIDNumFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtIDNumFocusGained
+        // TODO add your handling code here:
+        txtIDNum.setText("");
+    }//GEN-LAST:event_txtIDNumFocusGained
+
+    private void txtAgeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAgeFocusGained
+        // TODO add your handling code here:
+        txtAge.setText("");
+    }//GEN-LAST:event_txtAgeFocusGained
 
     
     /**
