@@ -46,11 +46,13 @@ public class displayRecords extends javax.swing.JFrame {
         btnDisplayAll = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDisplayAll = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
+        btnDisplayAll.setBackground(new java.awt.Color(15, 25, 35));
+        btnDisplayAll.setForeground(new java.awt.Color(255, 255, 255));
         btnDisplayAll.setText("DISPLAY ALL");
         btnDisplayAll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,10 +81,20 @@ public class displayRecords extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblDisplayAll);
 
-        jLabel1.setText("BACK");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+        btnBack.setBackground(new java.awt.Color(237, 237, 237));
+        btnBack.setForeground(new java.awt.Color(15, 25, 35));
+        btnBack.setText("BACK");
+        btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBackMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBackMouseExited(evt);
+            }
+        });
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
             }
         });
 
@@ -95,24 +107,28 @@ public class displayRecords extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 837, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
                         .addComponent(btnDisplayAll)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel1)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(393, 393, 393)
+                    .addComponent(btnBack)
+                    .addContainerGap(394, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap(36, Short.MAX_VALUE)
                 .addComponent(btnDisplayAll)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(211, 211, 211)
+                    .addComponent(btnBack)
+                    .addContainerGap(212, Short.MAX_VALUE)))
         );
 
         pack();
@@ -121,7 +137,6 @@ public class displayRecords extends javax.swing.JFrame {
 
     private void btnDisplayAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDisplayAllActionPerformed
         try {
-            // TODO add your handling code here:
             ResultSet rs = dbh.displayAllRecords();
             
             while(tblDisplayAll.getRowCount() > 0)
@@ -142,15 +157,23 @@ public class displayRecords extends javax.swing.JFrame {
                 ((DefaultTableModel) tblDisplayAll.getModel()).insertRow(rs.getRow()-1, row);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(displayRecords.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(addTaskStudent.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnDisplayAllActionPerformed
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void btnBackMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackMouseEntered
         // TODO add your handling code here:
-        new teacherPage().setVisible(true);
+    }//GEN-LAST:event_btnBackMouseEntered
+
+    private void btnBackMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBackMouseExited
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        new logIn().setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jLabel1MouseClicked
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,8 +209,8 @@ public class displayRecords extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDisplayAll;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblDisplayAll;
     // End of variables declaration//GEN-END:variables

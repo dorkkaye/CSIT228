@@ -6,6 +6,7 @@
 package registration.form;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,6 +24,7 @@ import java.util.logging.Logger;
 public class DBHelper {
     Connection con = null;
     Statement stmt = null;
+    private Object userStudent;
     
     public void connectDB() throws Exception
     {
@@ -64,6 +66,23 @@ public class DBHelper {
         return flag;
     }
     
+    public boolean insertTaskStudent(int id, String name, String deadline, String description)
+    {
+        boolean flag = false;
+        
+        try {
+            stmt = con.createStatement();
+            String sql = "Insert into studentTask values ("+id+", '"+name+"', '"+deadline+"', '"+description+"')";
+        
+            if(stmt.executeUpdate(sql) == 1);
+                flag = true;
+        } catch (SQLException ex) {
+            Logger.getLogger(DBHelper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return flag;
+    }
+    
     public ResultSet displayAllRecords()
     {
         ResultSet rs = null;
@@ -92,6 +111,164 @@ public class DBHelper {
         }
         
         return rs;
+    }
+    
+    public ResultSet displayAllTask()
+    {
+        ResultSet rs = null;
+        
+        try {
+            stmt = con.createStatement();
+            String sql = "Select * from studentTask";
+            rs = stmt.executeQuery(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(DBHelper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return rs;
+    }
+    
+    public ResultSet displayAllTaskStudent(String name)
+    {
+        ResultSet rs = null;
+        
+        try {
+            stmt = con.createStatement();
+            String sql = "Select * from studentTask where taskname = '"+name+"'";
+            rs = stmt.executeQuery(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(DBHelper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return rs;
+    }
+    
+    public ResultSet displayByTask(int id)
+    {
+        ResultSet rs = null;
+        
+        try {
+            stmt = con.createStatement();
+            String sql = "Select * from studentTask where idnumber = "+id+"";
+            rs = stmt.executeQuery(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(DBHelper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return rs;
+    }
+    
+    public ResultSet displayByIDStudent(int id)
+    {
+        ResultSet rs = null;
+        
+        try {
+            stmt = con.createStatement();
+            String sql = "Select * from tblStudentInfo where idnumber = "+id+"";
+            rs = stmt.executeQuery(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(DBHelper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return rs;
+    }
+    
+    public ResultSet displayByIDTeacher(int id)
+    {
+        ResultSet rs = null;
+        
+        try {
+            stmt = con.createStatement();
+            String sql = "Select * from tblTeacherInfo where idnumber = "+id+"";
+            rs = stmt.executeQuery(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(DBHelper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return rs;
+    }
+    
+    public ResultSet displayByNameTeacher(int id)
+    {
+        ResultSet rs = null;
+        
+        try {
+            stmt = con.createStatement();
+            String sql = "Select * from studentTask where idnumber = "+id+"";
+            rs = stmt.executeQuery(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(DBHelper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return rs;
+    }
+    
+    public boolean updateStudentRecord(int idn, String pass, int age, String user, String email)
+    {
+        boolean flag = false;
+        
+        try {
+            stmt = con.createStatement();
+            String sql = "Update tblStudentInfo set password = '"+pass+"', age = "+age+", username = '"+user+"', email = '"+email+"' where idnumber = "+idn+"";
+        
+            if(stmt.executeUpdate(sql) == 1);
+                flag = true;
+        } catch (SQLException ex) {
+            Logger.getLogger(DBHelper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return flag;
+    }
+    
+    public boolean updateTeacherRecord(int idn, String pass, int age, String user, String email)
+    {
+        boolean flag = false;
+        
+        try {
+            stmt = con.createStatement();
+            String sql = "Update tblTeacherInfo set password = '"+pass+"', age = "+age+", username = '"+user+"', email = '"+email+"' where idnumber = "+idn+"";
+        
+            if(stmt.executeUpdate(sql) == 1);
+                flag = true;
+        } catch (SQLException ex) {
+            Logger.getLogger(DBHelper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return flag;
+    }
+    
+    public boolean updateTaskTeacher(int id, String name, String description, String deadline)
+    {
+        boolean flag = false;
+        
+        try {
+            stmt = con.createStatement();
+            String sql = "Update studentTask set idnumber = "+id+", taskname = '"+name+"', taskdescription = '"+description+"', deadline = '"+deadline+"' where idnumber = "+id+"";
+        
+            if(stmt.executeUpdate(sql) == 1);
+                flag = true;
+        } catch (SQLException ex) {
+            Logger.getLogger(DBHelper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return flag;
+    }
+    
+    public boolean deleteRecord(String name)
+    {
+       boolean flag = false;
+        
+        try {
+            stmt = con.createStatement();
+            String sql = "Delete from studentTask where taskname = '"+name+"'";
+        
+            if(stmt.executeUpdate(sql) == 1);
+                flag = true;
+        } catch (SQLException ex) {
+            Logger.getLogger(DBHelper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return flag;
     }
     
     public void disconnectDB()

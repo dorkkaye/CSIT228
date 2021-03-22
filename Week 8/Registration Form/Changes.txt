@@ -1,5 +1,16 @@
 Creating an Account
-
 Additionals:
 	-Username
 	-Password
+
+Teachers Page
+Removed:
+	-Add badge
+	-Choosing between student and teacher to all
+	-update task
+
+Student Page
+Removed
+	-update task
+	
+	

@@ -121,7 +121,6 @@ public class RegistrationFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFocusCycleRoot(false);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(849, 445));
 
         jPanel2.setBackground(new java.awt.Color(15, 25, 35));
         jPanel2.setPreferredSize(new java.awt.Dimension(849, 445));
@@ -355,8 +354,8 @@ public class RegistrationFrame extends javax.swing.JFrame {
             }
         });
 
-        btnRegister.setBackground(new java.awt.Color(237, 237, 237));
-        btnRegister.setForeground(new java.awt.Color(15, 25, 35));
+        btnRegister.setBackground(new java.awt.Color(15, 25, 35));
+        btnRegister.setForeground(new java.awt.Color(255, 255, 255));
         btnRegister.setText("REGISTER");
         btnRegister.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -372,8 +371,8 @@ public class RegistrationFrame extends javax.swing.JFrame {
             }
         });
 
-        btnClear.setBackground(new java.awt.Color(237, 237, 237));
-        btnClear.setForeground(new java.awt.Color(15, 25, 35));
+        btnClear.setBackground(new java.awt.Color(15, 25, 35));
+        btnClear.setForeground(new java.awt.Color(255, 255, 255));
         btnClear.setText("CLEAR");
         btnClear.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -389,8 +388,8 @@ public class RegistrationFrame extends javax.swing.JFrame {
             }
         });
 
-        btnBack.setBackground(new java.awt.Color(237, 237, 237));
-        btnBack.setForeground(new java.awt.Color(15, 25, 35));
+        btnBack.setBackground(new java.awt.Color(15, 25, 35));
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("BACK");
         btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {

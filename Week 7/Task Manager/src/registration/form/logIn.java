@@ -17,6 +17,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import static registration.form.studentPage.userStudent;
+//import static registration.form.studentPage.studentUser;
+import static registration.form.teacherPage.teacherUser;
 
 /**
  *
@@ -148,6 +151,9 @@ public class logIn extends javax.swing.JFrame {
         createAccount.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 createAccountMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                createAccountMouseEntered(evt);
             }
         });
 
@@ -425,8 +431,10 @@ public class logIn extends javax.swing.JFrame {
 
                 if(log == 0)
                 {
+                    teacherUser.setText(rs.getString(2));
                     new teacherPage().setVisible(true);
                     this.setVisible(false);
+                    
                 }
                 else
                     JOptionPane.showMessageDialog(this, "Sorry, you have entered an invalid username or password");
@@ -447,6 +455,7 @@ public class logIn extends javax.swing.JFrame {
 
                 if(log == 0)
                 {
+                    userStudent.setText(rs.getString(2));
                     new studentPage().setVisible(true);
                     this.setVisible(false);
                 }
@@ -461,12 +470,10 @@ public class logIn extends javax.swing.JFrame {
     }//GEN-LAST:event_logInActionPerformed
 
     private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
-        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_exitMouseClicked
 
     private void usernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFocusGained
-        // TODO add your handling code here:
         username.setText("");
     }//GEN-LAST:event_usernameFocusGained
 
@@ -475,12 +482,10 @@ public class logIn extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordFocusLost
 
     private void passwordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusGained
-        // TODO add your handling code here:
         password.setText("");
     }//GEN-LAST:event_passwordFocusGained
 
     private void exit3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exit3MouseClicked
-        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_exit3MouseClicked
 
@@ -499,35 +504,33 @@ public class logIn extends javax.swing.JFrame {
     {
         p.setBackground(new Color(15,25,35));
     }
-    
     private void exit3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exit3MouseEntered
-        // TODO add your handling code here:
         setColorExit(jPanel7);
     }//GEN-LAST:event_exit3MouseEntered
 
     private void exit3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exit3MouseExited
-        // TODO add your handling code here:
         resetColor(jPanel7);
     }//GEN-LAST:event_exit3MouseExited
 
     private void minimize3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimize3MouseClicked
-        // TODO add your handling code here:
         this.setExtendedState(JFrame.ICONIFIED);
     }//GEN-LAST:event_minimize3MouseClicked
 
     private void minimize3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimize3MouseEntered
-        // TODO add your handling code here:
         setColor(jPanel8);
     }//GEN-LAST:event_minimize3MouseEntered
 
     private void minimize3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimize3MouseExited
-        // TODO add your handling code here:
-        resetColor(jPanel8);
+       resetColor(jPanel8);
     }//GEN-LAST:event_minimize3MouseExited
 
     private void specificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specificationActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_specificationActionPerformed
+
+    private void createAccountMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createAccountMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_createAccountMouseEntered
 
     /**
      * @param args the command line arguments
@@ -569,26 +572,18 @@ public class logIn extends javax.swing.JFrame {
     private javax.swing.JLabel errorSignIn;
     private javax.swing.JLabel errorSignIn1;
     private javax.swing.JLabel exit;
-    private javax.swing.JLabel exit1;
-    private javax.swing.JLabel exit2;
     private javax.swing.JLabel exit3;
     private javax.swing.JLabel facebook;
     private javax.swing.JLabel google;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JButton logIn;
     private javax.swing.JLabel logo;
-    private javax.swing.JLabel minimize1;
-    private javax.swing.JLabel minimize2;
     private javax.swing.JLabel minimize3;
     private javax.swing.JPasswordField password;
     private javax.swing.JLabel settings;
