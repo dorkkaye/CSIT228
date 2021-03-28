@@ -328,7 +328,7 @@ public class updateStudentRecord extends javax.swing.JFrame {
         boolean upd = dbh.updateStudentRecord(idn, pass, age, user, email);
 
         if(upd)
-        JOptionPane.showMessageDialog(this, "Successfuly Signed Updated");
+        JOptionPane.showMessageDialog(this, "Successfuly Updated");
         else
         JOptionPane.showMessageDialog(this, "Sorry, you have invalid inputs at some fields");
 
